@@ -16,7 +16,7 @@
                 -length  -> its length                                  
                 -snakeBody -> vector of bodyPart(s)
                 -head is the snakeBody[snake.legth-1] element of the vector
-            BodyPart is a struct which holds:                         0 1
+            BodyPart is a struct which holds:                      0 1
                 -Pos -> current coordinates of bodyPart in format [y x]
                 -direction -> 0 up, 1 rigth, 2 down, 3 left
             Snake Default length is 3. It can be modified by rewriting InitSnake() fuction.
