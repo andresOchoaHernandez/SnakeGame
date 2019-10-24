@@ -99,7 +99,7 @@ int main(int argc,char *argv[]){
     box(titleWin,0,0);
     box(scoreWin,0,0);
 
-    mvwprintw(scoreWin,1,1,"SCORE: 0");
+    mvwprintw(scoreWin,1,1,"SCORE: 000");
     mvwprintw(titleWin,1,1,"S N A K E  G A M E");
     mvprintw(TITLE_WIN_Y+1,TITLE_WIN_X + TITLE_WIN_WITDH +14,"PRESS 'E' TO EXIT");
 
@@ -203,8 +203,7 @@ int main(int argc,char *argv[]){
                     break;
                 case 'r':
                     wdelch(inputWin);
-                    wclear(scoreWin);
-                    mvwprintw(scoreWin,1,1,"SCORE: 0");
+                    mvwprintw(scoreWin,1,1,"SCORE: 000");
                     wrefresh(scoreWin);
                     goto begin;
                     break;
