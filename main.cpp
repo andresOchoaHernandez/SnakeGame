@@ -16,7 +16,7 @@
                 -length  -> its length                                  
                 -snakeBody -> vector of bodyPart(s)
                 -head is the snakeBody[snake.legth-1] element of the vector
-            BodyPart is a struct who holds:                         0 1
+            BodyPart is a struct which holds:                         0 1
                 -Pos -> current coordinates of bodyPart in format [y x]
                 -direction -> 0 up, 1 rigth, 2 down, 3 left
             Snake Default length is 3. It can be modified by rewriting InitSnake() fuction.
@@ -30,8 +30,6 @@
 #include <vector>
 #include <iostream>
 #include <sys/signal.h>
-#include <iostream>
-#include <fstream> 
 
 #define BORDER_WIN_X 1
 #define BORDER_WIN_Y 0
@@ -99,7 +97,7 @@ int main(int argc,char *argv[]){
     box(titleWin,0,0);
     box(scoreWin,0,0);
 
-    mvwprintw(scoreWin,1,1,"SCORE: 000");
+    mvwprintw(scoreWin,1,1,"SCORE: 0");
     mvwprintw(titleWin,1,1,"S N A K E  G A M E");
     mvprintw(TITLE_WIN_Y+1,TITLE_WIN_X + TITLE_WIN_WITDH +14,"PRESS 'E' TO EXIT");
 
@@ -203,7 +201,9 @@ int main(int argc,char *argv[]){
                     break;
                 case 'r':
                     wdelch(inputWin);
-                    mvwprintw(scoreWin,1,1,"SCORE: 000");
+                    for(int i=1;i<=10;i++)
+                        mvwaddch(scoreWin,1,i,' ');
+                    mvwprintw(scoreWin,1,1,"SCORE: 0");
                     wrefresh(scoreWin);
                     goto begin;
                     break;
@@ -270,8 +270,8 @@ FOOD initFood(void){
     srand(time(nullptr));
 
     FOOD food;
-    food.pos[0]=rand()%(GAME_WIN_HEIGTH);
-    food.pos[1]=rand()%(GAME_WIN_WIDTH);
+    food.pos[0]=rand()%(GAME_WIN_HEIGTH-1);
+    food.pos[1]=rand()%(GAME_WIN_WIDTH-1);
 
     return food;
 }
